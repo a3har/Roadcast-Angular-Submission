@@ -7,8 +7,12 @@ import {TimeService} from './services/time.service'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  dateTime:Date;
+  
+  dateTime:Date = new Date();
+
   constructor(private t:TimeService){
-      this.dateTime = t.currentDateTime;
+      this.t.currentDateTime.subscribe(value=> {
+        this.dateTime = value;
+      });
   }
 }
