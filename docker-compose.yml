@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    volumes:
+      - .:/usr/src
+    ports:
+      - "4200:4200"
+    user: $USER
+    command: > 
+        bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"    
+    stdin_open: true
+    tty: true
